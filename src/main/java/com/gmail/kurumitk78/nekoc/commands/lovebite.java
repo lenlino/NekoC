@@ -7,7 +7,8 @@ import org.bukkit.*;
 
 public class lovebite implements CommandExecutor {
     public boolean onCommand(final CommandSender sender, final Command cmd, final String label, final String[] args) {
-        if (!(sender instanceof Player)) {
+        if (!(sender instanceof Player) || !NekoC.isNeko((Player)sender)) {
+            sender.sendMessage(NekoC.prefix + ChatColor.LIGHT_PURPLE + " You do not have permission to run this command");
             return false;
         }
         if (args.length == 0 || Bukkit.getPlayer(args[0]) == null) {
@@ -24,7 +25,7 @@ public class lovebite implements CommandExecutor {
                 Bukkit.broadcastMessage(NekoC.prefix + ChatColor.YELLOW + p.getDisplayName() + ChatColor.LIGHT_PURPLE + " has lightly bit the finger of " + ChatColor.YELLOW + player.getName());
             } else {
                 sender.sendMessage(NekoC.prefix + ChatColor.LIGHT_PURPLE + " You lightly bite the finger of " + ChatColor.YELLOW + args[0] + ChatColor.LIGHT_PURPLE + " to show them how much you love them.");
-                player.sendMessage(NekoC.prefix + ChatColor.YELLOW + " You feel a sharp set of teeth softly bite your finger, then see" + ChatColor.YELLOW + PlayerName + ChatColor.LIGHT_PURPLE + " looking up at you.");
+                player.sendMessage(NekoC.prefix + ChatColor.YELLOW + " You feel a sharp set of teeth softly bite your finger, then see " + ChatColor.YELLOW + PlayerName + ChatColor.LIGHT_PURPLE + " looking up at you.");
             }
         }
         return true;
