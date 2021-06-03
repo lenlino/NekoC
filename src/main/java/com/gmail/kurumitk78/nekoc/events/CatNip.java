@@ -16,7 +16,7 @@ public class CatNip implements Listener {
 
     @EventHandler
     public void onPlayerInteract(final PlayerInteractEvent event) {
-        if (!event.getMaterial().equals(null)) {
+        if (event.getItem() != null  && event.getItem().getType() == Material.AIR) {
             if (event.getMaterial().equals(Material.SEEDS) && event.getItem().getItemMeta().getDisplayName().equalsIgnoreCase("catnip")) {
 
                 if (NekoC.isNeko(event.getPlayer())) {
