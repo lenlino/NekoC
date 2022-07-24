@@ -34,7 +34,7 @@ public class NekoChat implements Listener
             if (msg.equalsIgnoreCase("yay") || msg.equalsIgnoreCase("yay!")) {
                 msg = "Nya!";
             }
-            msg += "-nya";
+            msg += "nya";
             msg = msg.replace("nya-nya", "nya");
             msg = msg.replace("Nya-nya", "Nya");
             event.setMessage(msg);
