@@ -35,7 +35,7 @@ public class Config {
     private static YamlConfiguration nekoListConfig = null;
 
 
-    private static final String mainConfigFileName = "/Config.yml"; //Set the name of the Main Config file
+    private static final String mainConfigFileName = "/config.yml"; //Set the name of the Main Config file
     private static final String nekoListConfigFileName = "/NekoList.yml";
 
 

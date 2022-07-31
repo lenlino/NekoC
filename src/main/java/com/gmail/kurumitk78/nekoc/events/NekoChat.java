@@ -10,6 +10,12 @@ public class NekoChat implements Listener
     public void onPlayerChat(final AsyncPlayerChatEvent event) {
         if (NekoC.isNeko(event.getPlayer())) {
             String msg = event.getMessage(); //to-do: Use fucking regex instead of this garbage
+            msg = msg.replace("な","にゃ");
+            msg = msg.replace("に","にぃ");
+            msg = msg.replace("にぃゃ","にゃ");
+            msg = msg.replace("ぬ","にゅ");
+            msg = msg.replace("ね","にぇ");
+            msg = msg.replace("の","にょ");
             msg = msg.replace("na", "nya");
             msg = msg.replace("nu", "ny");
             msg = msg.replace("ni", "nyi");
@@ -34,9 +40,14 @@ public class NekoChat implements Listener
             if (msg.equalsIgnoreCase("yay") || msg.equalsIgnoreCase("yay!")) {
                 msg = "Nya!";
             }
-            msg += "nya";
-            msg = msg.replace("nya-nya", "nya");
-            msg = msg.replace("Nya-nya", "Nya");
+            if (msg.matches("^[A-Za-z]+$")) {
+                msg += "nya";
+            } else {
+                msg += "にゃ";
+            }
+
+            msg = msg.replace("nyanya", "nya");
+            msg = msg.replace("Nyanya", "Nya");
             event.setMessage(msg);
         }
     }
